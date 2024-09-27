@@ -46,5 +46,5 @@ cp /workspaces/assets/myapp.png MyApp.AppDir
 ls -lrtha
 curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 chmod a+x appimagetool-x86_64.AppImage
-./appimagetool-x86_64.AppImage MyApp.AppDir
+./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir
 ls -lrtha
