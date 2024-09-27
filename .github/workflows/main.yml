@@ -14,3 +14,9 @@ jobs:
     - name: Docker Run
       run: |
         docker run -v $(pwd):/workspaces ghcr.io/orxaicom/sefaria-container-unofficial:latest /bin/bash -c "cd /workspaces && chmod +x build.sh && ./build.sh"
+
+    - name: Upload AppImage
+      uses: actions/upload-artifact@v2
+      with:
+        name: MyApp-x86_64.AppImage
+        path: /MyApp-x86_64.AppImage
