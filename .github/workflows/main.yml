@@ -11,10 +11,6 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
-    - name: Run build.sh in GHCR image
+    - name: Docker Run
       run: |
-        docker run --rm \
-          -v ${{ github.workspace }}:/workspace \
-          -w /workspace \
-          ghcr.io/orxaicom/sefaria-container-unofficial:latest \
-          chmod +x ./build.sh && ./build.sh
+        docker run -v $(pwd):/workspaces ghcr.io/orxaicom/sefaria-container-unofficial:latest /bin/sh -c "cd /workspaces && chmod +x build.sh && ./build.sh"
