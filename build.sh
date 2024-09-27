@@ -5,7 +5,7 @@ set -e
 # Install dependencies
 apt-get update
 apt-get -y upgrade
-apt-get -y install curl zip unzip
+apt-get -y install curl unzip
 
 # Migrate
 curl -OL "https://github.com/Sefaria/Sefaria-Project/archive/refs/heads/master.zip"
@@ -25,9 +25,4 @@ npm run setup
 npm run build
 npm run build-client
 
-# Bundle into zip
-cd ..
-zip -r Sefaria-Project.zip Sefaria-Project
-du --si -h -s Sefaria-Project
-du --si -h Sefaria-Project.zip
-ls -lrtha
+ls -a
