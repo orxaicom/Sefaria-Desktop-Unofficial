@@ -28,6 +28,7 @@ npm run build-client
 # Build the AppImage directory
 cd /
 mkdir -p MyApp.AppDir/{usr/bin,usr/lib,data/db,var/log,workspaces}
+ls -R MyApp.AppDir
 cp /usr/bin/mongod MyApp.AppDir/usr/bin
 cp /usr/bin/redis-server MyApp.AppDir/usr/bin
 cp -r /python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir MyApp.AppDir
