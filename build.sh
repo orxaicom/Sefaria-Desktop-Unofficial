@@ -44,7 +44,7 @@ cp /workspaces/assets/myapp.png MyApp.AppDir
 
 # Build the AppImage
 ls -lrtha
-wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 chmod a+x appimagetool-x86_64.AppImage
 ./appimagetool-x86_64.AppImage MyApp.AppDir
 ls -lrtha
