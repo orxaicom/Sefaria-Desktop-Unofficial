@@ -25,4 +25,18 @@ npm run setup
 npm run build
 npm run build-client
 
-ls -a
+# Build the AppImage directory
+cd /
+mkdir -p MyApp.AppDir/{usr/bin,usr/lib,data/db,var/log,workspaces}
+cp /usr/bin/mongod MyApp.AppDir/usr/bin/
+cp /usr/bin/redis-server MyApp.AppDir/usr/bin/
+cp -r /python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir MyApp.AppDir/
+cp -r /workspaces/Sefaria-Project MyApp.AppDir/workspaces/
+cp /workspaces/assets/AppRun MyApp.AppDir/
+chmod +x MyApp.AppDir/AppRun
+cp /workspaces/assets/MyApp.desktop MyApp.AppDir/
+cp /workspaces/assets/myapp.png MyApp.AppDir/
+
+# Build the AppImage
+wget "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+chmod a+x appimagetool-x86_64.AppImage
