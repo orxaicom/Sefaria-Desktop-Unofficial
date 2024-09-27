@@ -13,4 +13,4 @@ jobs:
 
     - name: Docker Run
       run: |
-        docker run -v $(pwd):/workspaces ghcr.io/orxaicom/sefaria-container-unofficial:latest /bin/sh -c "cd /workspaces && chmod +x build.sh && ./build.sh"
+        docker run -v $(pwd):/workspaces ghcr.io/orxaicom/sefaria-container-unofficial:latest /bin/bash -c "cd /workspaces && chmod +x build.sh && ./build.sh"
