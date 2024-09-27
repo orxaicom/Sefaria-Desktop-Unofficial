@@ -29,18 +29,21 @@ npm run build-client
 cd /
 mkdir -p MyApp.AppDir/usr/bin
 mkdir -p MyApp.AppDir/usr/lib
-mkdir -p MyApp.AppDir/data/db
+mkdir -p MyApp.AppDir/data
 mkdir -p MyApp.AppDir/var/log
 mkdir -p MyApp.AppDir/workspaces
 
 cp /usr/bin/mongod MyApp.AppDir/usr/bin
+ldd /usr/bin/mongod | grep "=> /" | awk '{print $3}' | xargs -I {} cp {} MyApp.AppDir/usr/lib/
 cp /usr/bin/redis-server MyApp.AppDir/usr/bin
+ldd /usr/bin/redis-server | grep "=> /" | awk '{print $3}' | xargs -I {} cp {} MyApp.AppDir/usr/lib/
 cp -r /python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir MyApp.AppDir
 cp -r /workspaces/Sefaria-Project MyApp.AppDir/workspaces
 cp /workspaces/assets/AppRun MyApp.AppDir
 chmod +x MyApp.AppDir/AppRun
 cp /workspaces/assets/MyApp.desktop MyApp.AppDir
 cp /workspaces/assets/myapp.png MyApp.AppDir
+cp -r /data/db MyApp.AppDir/data
 
 # Build the AppImage
 ls -lrtha
