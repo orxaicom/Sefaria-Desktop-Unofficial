@@ -1,0 +1,16 @@
+name: Run ls in GHCR image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-ls:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Run ls command in GHCR image
+      run: |
+        docker run --rm ghcr.io/orxaicom/sefaria-container-unofficial:latest ls -lrtha
