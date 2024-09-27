@@ -5,7 +5,7 @@ set -ex
 # Install dependencies
 apt-get update
 apt-get -y upgrade
-apt-get -y install curl unzip fuse
+apt-get -y install curl unzip fuse file
 
 # Migrate
 curl -OL "https://github.com/Sefaria/Sefaria-Project/archive/refs/heads/master.zip"
