@@ -5,7 +5,7 @@ set -ex
 # Install dependencies
 apt-get update
 apt-get -y upgrade
-apt-get -y install curl unzip fuse file
+apt-get -y install curl unzip fuse file appstreamcli gnupg
 
 # Migrate
 curl -OL "https://github.com/Sefaria/Sefaria-Project/archive/refs/heads/master.zip"
@@ -46,5 +46,5 @@ cp /workspaces/assets/myapp.png MyApp.AppDir
 ls -lrtha
 curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 chmod a+x appimagetool-x86_64.AppImage
-./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir
+ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir
 ls -lrtha
