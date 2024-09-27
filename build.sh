@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -ex
 
 # Install dependencies
 apt-get update
