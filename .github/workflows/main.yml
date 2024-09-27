@@ -1,4 +1,4 @@
-name: Run ls in GHCR image
+name: Run build.sh in GHCR image
 
 on:
   workflow_dispatch:
@@ -11,6 +11,10 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
-    - name: Run ls command in GHCR image
+    - name: Run build.sh in GHCR image
       run: |
-        docker run --rm ghcr.io/orxaicom/sefaria-container-unofficial:latest ls -lrtha
+        docker run --rm \
+          -v ${{ github.workspace }}:/workspace \
+          -w /workspace \
+          ghcr.io/orxaicom/sefaria-container-unofficial:latest \
+          ./build.sh
