@@ -1,4 +1,4 @@
-name: Run build.sh in GHCR image
+name: Run build.sh inside /workspaces
 
 on:
   workflow_dispatch:
