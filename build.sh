@@ -52,5 +52,6 @@ chmod a+x appimagetool-x86_64.AppImage
 ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir
 ls -lrtha
 echo "============================================================================="
-ls -lrtha
+mv MyApp-x86_64.AppImage /workspaces
+ls -lrtha /workspaces
 pwd
