@@ -53,3 +53,4 @@ ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppD
 ls -lrtha
 echo "============================================================================="
 ls -lrtha
+pwd
