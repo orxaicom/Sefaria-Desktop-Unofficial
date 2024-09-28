@@ -50,6 +50,6 @@ cp -r /data/db MyApp.AppDir/data
 ls -lrtha
 curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 chmod a+x appimagetool-x86_64.AppImage
-ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir artifacts
+ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir artifacts/MyApp-x86_64.AppImage
 ls -lrtha
 ls -lrtha artifacts
