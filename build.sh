@@ -43,13 +43,13 @@ cp /workspaces/assets/AppRun MyApp.AppDir
 chmod +x MyApp.AppDir/AppRun
 cp /workspaces/assets/MyApp.desktop MyApp.AppDir
 cp /workspaces/assets/myapp.png MyApp.AppDir
-cp -r /data/db MyApp.AppDir/data
+mv /data/db MyApp.AppDir/data
 
 # Build the AppImage
 ls -lrtha
 curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 chmod a+x appimagetool-x86_64.AppImage
-ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir
+ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir && rm -rf MyApp.AppDir
 ls -lrtha
 echo "============================================================================="
 mv MyApp-x86_64.AppImage /workspaces
