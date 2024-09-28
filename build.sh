@@ -51,7 +51,7 @@ ls -lrtha
 curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 chmod a+x appimagetool-x86_64.AppImage
 ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir artifacts/MyApp-x86_64.AppImage
-tar -czvf artifacts/MyApp-x86_64.tar.gz artifacts/MyApp-x86_64.AppImage
+tar -czvf artifacts.tar.gz artifacts
 ls -lrtha
 echo "============================================================================="
 ls -lrtha /artifacts
