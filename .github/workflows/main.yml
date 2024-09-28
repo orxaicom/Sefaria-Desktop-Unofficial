@@ -19,4 +19,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: MyApp-x86_64.AppImage
-        path: ${{ github.workspace }}/artifacts/MyApp-x86_64.AppImage
+        path: /artifacts/MyApp-x86_64.tar.gz
