@@ -27,7 +27,7 @@ npm run build-client
 
 # Build the AppImage directory
 cd /
-mkdir artifacts
+mkdir /artifacts
 mkdir -p MyApp.AppDir/usr/bin
 mkdir -p MyApp.AppDir/usr/lib
 mkdir -p MyApp.AppDir/data
@@ -52,4 +52,5 @@ curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/a
 chmod a+x appimagetool-x86_64.AppImage
 ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir artifacts/MyApp-x86_64.AppImage
 ls -lrtha
-ls -lrtha artifacts
+echo "============================================================================="
+ls -lrtha /artifacts
