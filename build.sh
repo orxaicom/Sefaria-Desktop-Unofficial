@@ -44,6 +44,7 @@ ldd /usr/bin/redis-server | grep "=> /" | awk '{print $3}' | xargs -I {} cp {} M
 # gettext
 cp /usr/bin/gettext MyApp.AppDir/usr/bin
 ldd /usr/bin/gettext | grep "=> /" | awk '{print $3}' | xargs -I {} cp {} MyApp.AppDir/usr/lib/
+mkdir MyApp.AppDir/usr/lib/x86_64-linux-gnu
 cp -r /usr/lib/x86_64-linux-gnu/gettext MyApp.AppDir/usr/lib/x86_64-linux-gnu
 cp /usr/lib/x86_64-linux-gnu/libgettextlib-0.21.so MyApp.AppDir/usr/lib/x86_64-linux-gnu
 cp /usr/lib/x86_64-linux-gnu/libgettextsrc-0.21.so MyApp.AppDir/usr/lib/x86_64-linux-gnu
@@ -57,8 +58,6 @@ cp /workspaces/assets/MyApp.desktop MyApp.AppDir
 cp /workspaces/assets/myapp.png MyApp.AppDir
 mv /data/db MyApp.AppDir/data
 
-# Some libs
-mkdir MyApp.AppDir/usr/lib/x86_64-linux-gnu
 cp /usr/lib/x86_64-linux-gnu/libatomic.so.1 MyApp.AppDir/usr/lib/x86_64-linux-gnu
 
 # Build the AppImage
