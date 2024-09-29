@@ -17,7 +17,7 @@ export QT_PLUGIN_PATH="${HERE}/usr/lib/qt4/plugins/:${HERE}/usr/lib/i386-linux-g
 cd "$(dirname "$0")"
 
 # Start MongoDB
-./usr/bin/mongod --fork --logpath var/log/mongodb.log --dbpath data/db
+./usr/bin/mongod --fork --logpath ./var/log/mongodb.log --dbpath ./data/db
 
 # Start Redis
 ./usr/bin/redis-server &
