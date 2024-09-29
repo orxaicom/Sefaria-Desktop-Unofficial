@@ -46,8 +46,8 @@ cp /workspaces/assets/myapp.png MyApp.AppDir
 mv /data/db MyApp.AppDir/data
 
 # Some libs
-cp /usr/lib/x86_64-linux-gnu/libatomic.so.1 MyApp.AppDir/usr/lib/
-cp /usr/lib/x86_64-linux-gnu/liblzf.so.1 MyApp.AppDir/usr/lib/
+mkdir MyApp.AppDir/usr/lib/x86_64-linux-gnu
+cp /usr/lib/x86_64-linux-gnu/libatomic.so.1 MyApp.AppDir/usr/lib/x86_64-linux-gnu
 
 # Build the AppImage
 ls -lrtha
