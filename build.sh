@@ -45,6 +45,10 @@ cp /workspaces/assets/MyApp.desktop MyApp.AppDir
 cp /workspaces/assets/myapp.png MyApp.AppDir
 mv /data/db MyApp.AppDir/data
 
+# Some libs
+cp /usr/lib/x86_64-linux-gnu/libatomic.so.1 MyApp.AppDir/usr/lib/
+cp /usr/lib/x86_64-linux-gnu/liblzf.so.1 MyApp.AppDir/usr/lib/
+
 # Build the AppImage
 ls -lrtha
 curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
