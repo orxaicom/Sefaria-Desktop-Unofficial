@@ -18,6 +18,7 @@ unzip main.zip >/dev/null && rm main.zip
 mv Sefaria-Container-Unofficial-main/local_settings.py sefaria && rm -rf Sefaria-Container-Unofficial-main
 mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db
 /python3.8 manage.py migrate
+mongod --shutdown --logpath /var/log/mongodb.log --dbpath /data/db
 
 # Install npm modules
 npm install
