@@ -22,8 +22,8 @@ mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db
 # Install npm modules
 npm install
 npm run setup
-npm run build
 npm run build-client
+npm run build
 
 # Build the AppImage directory
 cd /
