@@ -61,6 +61,11 @@ mv /data/db MyApp.AppDir/data
 
 cp /usr/lib/x86_64-linux-gnu/libatomic.so.1 MyApp.AppDir/usr/lib/x86_64-linux-gnu
 
+# Final migrate
+cd MyApp.AppDir
+./python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ./workspaces/Sefaria-Project/manage.py migrate
+cd /
+
 # Build the AppImage
 curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 chmod a+x appimagetool-x86_64.AppImage
