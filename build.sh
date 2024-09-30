@@ -5,7 +5,7 @@ set -ex
 # Install dependencies
 apt-get update
 apt-get -y upgrade
-apt-get -y install curl unzip fuse file appstream gnupg
+apt-get -y install curl unzip fuse file appstream gnupg procps
 
 # Migrate
 curl -OL "https://github.com/Sefaria/Sefaria-Project/archive/refs/heads/master.zip"
@@ -63,8 +63,7 @@ cp /usr/lib/x86_64-linux-gnu/libatomic.so.1 MyApp.AppDir/usr/lib/x86_64-linux-gn
 
 # Final migrate
 cd MyApp.AppDir
-mongod --shutdown
-./usr/bin/mongod --fork --logpath ./var/log/mongodb.log --dbpath ./data/db
+pkill -9 mongod && ./usr/bin/mongod --fork --logpath ./var/log/mongodb.log --dbpath ./data/db
 ./python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ./workspaces/Sefaria-Project/manage.py migrate
 cd /
 
