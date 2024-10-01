@@ -128,7 +128,7 @@ SITE_PACKAGE = "sites.sefaria"
 
 
 ################ These are things you DO NOT NEED to touch unless you know what you are doing. ##############################
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 OFFLINE = False
 DOWN_FOR_MAINTENANCE = False
