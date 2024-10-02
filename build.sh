@@ -86,3 +86,4 @@ ls -lrtha
 npm start
 npm run build:appimage
 ls -lrtha
+ls -lrtha dist
