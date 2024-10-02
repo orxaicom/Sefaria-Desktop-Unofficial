@@ -77,11 +77,6 @@ cd /
 #mv MyApp-x86_64.AppImage /workspaces
 
 # Build Electron
-# To fix --no-sandbox issue
-whoami
-useradd -m myuser
-su myuser
-whoami
 mkdir sefaria-electron
 cd sefaria-electron
 npm init -y
