@@ -85,7 +85,6 @@ cp /workspaces/assets/main.js .
 rm package.json && cp /workspaces/assets/package.json .
 mv /MyApp.AppDir ./AppDir
 ls -lrtha
-npm start
 npm run build:appimage
 ls -lrtha
 ls -lrtha dist
