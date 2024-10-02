@@ -5,7 +5,7 @@ set -ex
 # Install dependencies
 apt-get update
 apt-get -y upgrade
-apt-get -y install curl unzip fuse file appstream gnupg procps
+apt-get -y install curl unzip fuse file appstream gnupg procps libnss3
 
 # Migrate
 curl -OL "https://github.com/Sefaria/Sefaria-Project/archive/refs/heads/master.zip"
