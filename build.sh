@@ -69,7 +69,17 @@ cd MyApp.AppDir
 cd /
 
 # Build the AppImage
-curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
-chmod a+x appimagetool-x86_64.AppImage
-ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir && rm -rf MyApp.AppDir
+#curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+#chmod a+x appimagetool-x86_64.AppImage
+#ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir && rm -rf MyApp.AppDir
 mv MyApp-x86_64.AppImage /workspaces
+
+# Build Electron
+mkdir sefaria-electron
+cd sefaria-electron
+npm init -y
+npm install electron --save-dev
+cp /workspaces/assets/main.js .
+ls -lrtha
+echo "===================================================="
+cat package.json
