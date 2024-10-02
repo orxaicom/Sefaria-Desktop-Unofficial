@@ -80,6 +80,9 @@ cd sefaria-electron
 npm init -y
 npm install electron --save-dev
 cp /workspaces/assets/main.js .
+rm package.json && cp /workspaces/assets/package.json .
+mv /MyApp.AppDir ./AppDir
 ls -lrtha
-echo "===================================================="
-cat package.json
+npm start
+npm run build:appimage
+ls -lrtha
