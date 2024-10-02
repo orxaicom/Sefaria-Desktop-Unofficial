@@ -86,4 +86,5 @@ cp /workspaces/assets/main.js .
 rm package.json && cp /workspaces/assets/package.json .
 mv /MyApp.AppDir ./AppDir
 npm run build:appimage
+rm -rf ./AppDir
 mv dist/sefaria-electron-1.0.0.AppImage /workspaces
