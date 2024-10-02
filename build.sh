@@ -1,4 +1,4 @@
-#!/bin/sh
+electron-builder: not found#!/bin/sh
 
 set -ex
 
@@ -81,6 +81,7 @@ mkdir sefaria-electron
 cd sefaria-electron
 npm init -y
 npm install electron --save-dev
+npm install -g electron-builder
 cp /workspaces/assets/main.js .
 rm package.json && cp /workspaces/assets/package.json .
 mv /MyApp.AppDir ./AppDir
