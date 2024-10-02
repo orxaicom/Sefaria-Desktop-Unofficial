@@ -5,9 +5,9 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron --no-sandbox .",
-    "build": "electron-builder --no-sandbox",
-    "build:appimage": "electron-builder --no-sandbox --linux AppImage"
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:appimage": "electron-builder --linux AppImage"
   },
   "keywords": [],
   "author": "",
