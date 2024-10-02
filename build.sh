@@ -85,7 +85,5 @@ npm install -g electron-builder
 cp /workspaces/assets/main.js .
 rm package.json && cp /workspaces/assets/package.json .
 mv /MyApp.AppDir ./AppDir
-ls -lrtha
 npm run build:appimage
-ls -lrtha
-ls -lrtha dist
+mv dist/sefaria-electron-1.0.0.AppImage /workspaces
