@@ -72,7 +72,7 @@ cd /
 #curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 #chmod a+x appimagetool-x86_64.AppImage
 #ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir && rm -rf MyApp.AppDir
-mv MyApp-x86_64.AppImage /workspaces
+#mv MyApp-x86_64.AppImage /workspaces
 
 # Build Electron
 mkdir sefaria-electron
