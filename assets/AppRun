@@ -2,6 +2,7 @@
 
 SELF=$(readlink -f "$0")
 HERE=${SELF%/*}
+export HERE
 export PATH="${HERE}/usr/bin/:${HERE}/usr/sbin/:${HERE}/usr/games/:${HERE}/bin/:${HERE}/sbin/${PATH:+:$PATH}"
 export LD_LIBRARY_PATH="${HERE}/usr/lib/:${HERE}/usr/lib/i386-linux-gnu/:${HERE}/usr/lib/x86_64-linux-gnu/:${HERE}/usr/lib32/:${HERE}/usr/lib64/:${HERE}/lib/:${HERE}/lib/i386-linux-gnu/:${HERE}/lib/x86_64-linux-gnu/:${HERE}/lib32/:${HERE}/lib64/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 export PYTHONPATH="${HERE}/usr/share/pyshared/${PYTHONPATH:+:$PYTHONPATH}"
@@ -17,16 +18,16 @@ export QT_PLUGIN_PATH="${HERE}/usr/lib/qt4/plugins/:${HERE}/usr/lib/i386-linux-g
 cd "$(dirname "$0")"
 
 # Start MongoDB
-./usr/bin/mongod --fork --logpath ./var/log/mongodb.log --dbpath ./data/db
+${HERE}/usr/bin/mongod --fork --logpath ${HERE}/var/log/mongodb.log --dbpath ${HERE}/data/db
 
 # Start Redis
-./usr/bin/redis-server &
+${HERE}/usr/bin/redis-server &
 
 # Wait for MongoDB and Redis to start
 sleep 5
 
 # Start the Sefaria server
-./python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ./workspaces/Sefaria-Project/manage.py runserver
+${HERE}/python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ${HERE}/workspaces/Sefaria-Project/manage.py runserver
 
 # Keep the script running
 wait
