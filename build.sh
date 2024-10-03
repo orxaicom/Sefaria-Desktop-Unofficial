@@ -70,6 +70,11 @@ cd MyApp.AppDir
 ./python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ./workspaces/Sefaria-Project/manage.py migrate
 cd /
 
+# Remove data for debugging
+rm -rf MyApp.AppDir/data/db
+zip -r MyApp.zip /MyApp.AppDir
+mv MyApp.zip /workspaces
+
 # Build the AppImage
 #curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 #chmod a+x appimagetool-x86_64.AppImage
@@ -77,14 +82,14 @@ cd /
 #mv MyApp-x86_64.AppImage /workspaces
 
 # Build Electron
-mkdir sefaria-electron
-cd sefaria-electron
-npm init -y
-npm install electron --save-dev
-npm install -g electron-builder
-cp /workspaces/assets/main.js .
-rm package.json && cp /workspaces/assets/package.json .
-mv /MyApp.AppDir ./AppDir
-npm run build:appimage
-rm -rf ./AppDir
-mv dist/sefaria-electron-1.0.0.AppImage /workspaces
+#mkdir sefaria-electron
+#cd sefaria-electron
+#npm init -y
+#npm install electron --save-dev
+#npm install -g electron-builder
+#cp /workspaces/assets/main.js .
+#rm package.json && cp /workspaces/assets/package.json .
+#mv /MyApp.AppDir ./AppDir
+#npm run build:appimage
+#rm -rf ./AppDir
+#mv dist/sefaria-electron-1.0.0.AppImage /workspaces
