@@ -69,7 +69,6 @@ APSCHEDULER_NAME = "apscheduler"
 
 
 """ These are some examples of possible caches. more here: https://docs.djangoproject.com/en/1.11/topics/cache/"""
-"""
 CACHES = {
     "shared": {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
@@ -89,6 +88,7 @@ CACHES = {
         'LOCATION': '/home/ephraim/www/sefaria/django_cache/',
     }
 }
+"""
 
 SESSION_CACHE_ALIAS = "default"
 USER_AGENTS_CACHE = 'default'
