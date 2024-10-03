@@ -18,5 +18,5 @@ jobs:
     - name: Upload AppImage
       uses: actions/upload-artifact@v4
       with:
-        name: AppImage
-        path: sefaria-electron-1.0.0.AppImage
+        name: ZIP
+        path: MyApp.zip
