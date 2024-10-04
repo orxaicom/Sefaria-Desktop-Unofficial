@@ -31,55 +31,55 @@ npm run build
 
 # Build the AppImage directory
 cd /
-mkdir -p MyApp.AppDir/usr/bin
-mkdir -p MyApp.AppDir/usr/lib
-mkdir -p MyApp.AppDir/data
-mkdir -p MyApp.AppDir/var/log
-mkdir -p MyApp.AppDir/workspaces
+mkdir -p Sefaria-Desktop-Unofficial.AppDir/usr/bin
+mkdir -p Sefaria-Desktop-Unofficial.AppDir/usr/lib
+mkdir -p Sefaria-Desktop-Unofficial.AppDir/data
+mkdir -p Sefaria-Desktop-Unofficial.AppDir/var/log
+mkdir -p Sefaria-Desktop-Unofficial.AppDir/workspaces
+
+# linuxdeploy
+curl -OL "https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage"
+chmod a+x linuxdeploy-x86_64.AppImage
 
 # Mongo
-cp /usr/bin/mongod MyApp.AppDir/usr/bin
-ldd /usr/bin/mongod | grep "=> /" | awk '{print $3}' | xargs -I {} cp {} MyApp.AppDir/usr/lib/
+./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --executable=/usr/bin/mongod
 
 # Redis
-cp /usr/bin/redis-server MyApp.AppDir/usr/bin
-ldd /usr/bin/redis-server | grep "=> /" | awk '{print $3}' | xargs -I {} cp {} MyApp.AppDir/usr/lib/
+./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --executable=/usr/bin/redis-server
 
-# gettext
-cp /usr/bin/gettext MyApp.AppDir/usr/bin
-ldd /usr/bin/gettext | grep "=> /" | awk '{print $3}' | xargs -I {} cp {} MyApp.AppDir/usr/lib/
-mkdir MyApp.AppDir/usr/lib/x86_64-linux-gnu
-cp -r /usr/lib/x86_64-linux-gnu/gettext MyApp.AppDir/usr/lib/x86_64-linux-gnu
-cp /usr/lib/x86_64-linux-gnu/libgettextlib-0.21.so MyApp.AppDir/usr/lib/x86_64-linux-gnu
-cp /usr/lib/x86_64-linux-gnu/libgettextsrc-0.21.so MyApp.AppDir/usr/lib/x86_64-linux-gnu
+# GetText
+./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --executable=/usr/bin/gettext
 
-cp -r /python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir MyApp.AppDir
+# Icon
+#
+
+cp -r /python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir Sefaria-Desktop-Unofficial.AppDir
 sed -i "s;'NAME': '/workspaces;'NAME': './workspaces;" /workspaces/Sefaria-Project/sefaria/local_settings.py
-cp -r /workspaces/Sefaria-Project MyApp.AppDir/workspaces
-cp /workspaces/assets/AppRun MyApp.AppDir
-chmod +x MyApp.AppDir/AppRun
-cp /workspaces/assets/MyApp.desktop MyApp.AppDir
-cp /workspaces/assets/myapp.png MyApp.AppDir
-mv /data/db MyApp.AppDir/data
+cp -r /workspaces/Sefaria-Project Sefaria-Desktop-Unofficial.AppDir/workspaces
+cp /workspaces/assets/AppRun Sefaria-Desktop-Unofficial.AppDir
+chmod +x Sefaria-Desktop-Unofficial.AppDir/AppRun
+cp /workspaces/assets/MyApp.desktop Sefaria-Desktop-Unofficial.AppDir
+cp /workspaces/assets/myapp.png Sefaria-Desktop-Unofficial.AppDir
+mv /data/db Sefaria-Desktop-Unofficial.AppDir/data
 
-cp /usr/lib/x86_64-linux-gnu/libatomic.so.1 MyApp.AppDir/usr/lib/x86_64-linux-gnu
+cp /usr/lib/x86_64-linux-gnu/libatomic.so.1 Sefaria-Desktop-Unofficial.AppDir/usr/lib/x86_64-linux-gnu
 
 # Final migrate
-cd MyApp.AppDir
+cd Sefaria-Desktop-Unofficial.AppDir
 ./usr/bin/mongod --fork --logpath /var/log/mongodb.log --dbpath ./data/db
 ./python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ./workspaces/Sefaria-Project/manage.py migrate
 cd /
 
 # Remove data for debugging
-rm -rf MyApp.AppDir/data/db
-zip -r MyApp.zip /MyApp.AppDir
-mv MyApp.zip /workspaces
+rm -rf Sefaria-Desktop-Unofficial.AppDir/data/db
+zip -r Sefaria-Desktop-Unofficial.zip /Sefaria-Desktop-Unofficial.AppDir
+mv Sefaria-Desktop-Unofficial.zip /workspaces
 
 # Build the AppImage
 #curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 #chmod a+x appimagetool-x86_64.AppImage
-#ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run MyApp.AppDir && rm -rf MyApp.AppDir
-#mv MyApp-x86_64.AppImage /workspaces
+#ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run Sefaria-Desktop-Unofficial.AppDir && rm -rf Sefaria-Desktop-Unofficial.AppDir
+#mv Sefaria-Desktop-Unofficial-x86_64.AppImage /workspaces
 
 # Build Electron
 #mkdir sefaria-electron
@@ -89,7 +89,7 @@ mv MyApp.zip /workspaces
 #npm install -g electron-builder
 #cp /workspaces/assets/main.js .
 #rm package.json && cp /workspaces/assets/package.json .
-#mv /MyApp.AppDir ./AppDir
+#mv /Sefaria-Desktop-Unofficial.AppDir ./AppDir
 #npm run build:appimage
 #rm -rf ./AppDir
 #mv dist/sefaria-electron-1.0.0.AppImage /workspaces
