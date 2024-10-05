@@ -53,4 +53,4 @@ fi
 # Start the Sefaria server
 echo "Starting Sefaria..."
 echo "This takes a minute or two, Please wait..."
-${HERE}/python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ${HERE}/workspaces/Sefaria-Project/manage.py runserver
+${HERE}/python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ${HERE}/workspaces/Sefaria-Project/manage.py runserver 2>/dev/null
