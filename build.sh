@@ -50,6 +50,9 @@ chmod a+x linuxdeploy-x86_64.AppImage
 # GetText
 ./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --executable=/usr/bin/gettext
 
+# pgrep
+./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --executable=/usr/bin/pgrep
+
 # Desktop file, Icon and AppRun
 ./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --desktop-file=/workspaces/assets/Sefaria-Desktop-Unofficial.desktop --icon-file=/workspaces/assets/Sefaria-Desktop-Unofficial.png --custom-apprun=/workspaces/assets/AppRun
 
