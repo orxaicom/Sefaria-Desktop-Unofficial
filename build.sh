@@ -30,10 +30,7 @@ npm run build
 
 # Build the AppImage directory
 cd /
-mkdir -p Sefaria-Desktop-Unofficial.AppDir/usr/bin
-mkdir -p Sefaria-Desktop-Unofficial.AppDir/usr/lib
 mkdir -p Sefaria-Desktop-Unofficial.AppDir/data
-mkdir -p Sefaria-Desktop-Unofficial.AppDir/var/log
 mkdir -p Sefaria-Desktop-Unofficial.AppDir/workspaces
 
 # linuxdeploy
