@@ -18,16 +18,10 @@ export QT_PLUGIN_PATH="${HERE}/usr/lib/qt4/plugins/:${HERE}/usr/lib/i386-linux-g
 cd "$(dirname "$0")"
 
 # Start MongoDB
-${HERE}/usr/bin/mongod --fork --logpath ${HERE}/var/log/mongodb.log --dbpath ${HERE}/data/db
+${HERE}/usr/bin/mongod --quiet --dbpath ${HERE}/data/db 2>&1 1>/dev/null &
 
 # Start Redis
 ${HERE}/usr/bin/redis-server &
 
-# Wait for MongoDB and Redis to start
-sleep 5
-
 # Start the Sefaria server
 ${HERE}/python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ${HERE}/workspaces/Sefaria-Project/manage.py runserver
-
-# Keep the script running
-wait
