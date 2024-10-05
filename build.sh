@@ -58,7 +58,7 @@ sed -i "s;'NAME': '/workspaces;'NAME': './workspaces;" /workspaces/Sefaria-Proje
 cp -r /workspaces/Sefaria-Project Sefaria-Desktop-Unofficial.AppDir/workspaces
 cp /workspaces/assets/AppRun Sefaria-Desktop-Unofficial.AppDir
 chmod +x Sefaria-Desktop-Unofficial.AppDir/AppRun
-cp /workspaces/assets/MyApp.desktop Sefaria-Desktop-Unofficial.AppDir
+cp /workspaces/assets/Sefaria-Desktop-Unofficial.desktop Sefaria-Desktop-Unofficial.AppDir
 cp /workspaces/assets/myapp.png Sefaria-Desktop-Unofficial.AppDir
 mv /data/db Sefaria-Desktop-Unofficial.AppDir/data
 
@@ -70,26 +70,8 @@ cd Sefaria-Desktop-Unofficial.AppDir
 ./python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ./workspaces/Sefaria-Project/manage.py migrate
 cd /
 
-# Remove data for debugging
-rm -rf Sefaria-Desktop-Unofficial.AppDir/data/db
-zip -r Sefaria-Desktop-Unofficial.zip /Sefaria-Desktop-Unofficial.AppDir
-mv Sefaria-Desktop-Unofficial.zip /workspaces
-
 # Build the AppImage
-#curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
-#chmod a+x appimagetool-x86_64.AppImage
-#ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run Sefaria-Desktop-Unofficial.AppDir && rm -rf Sefaria-Desktop-Unofficial.AppDir
-#mv Sefaria-Desktop-Unofficial-x86_64.AppImage /workspaces
-
-# Build Electron
-#mkdir sefaria-electron
-#cd sefaria-electron
-#npm init -y
-#npm install electron --save-dev
-#npm install -g electron-builder
-#cp /workspaces/assets/main.js .
-#rm package.json && cp /workspaces/assets/package.json .
-#mv /Sefaria-Desktop-Unofficial.AppDir ./AppDir
-#npm run build:appimage
-#rm -rf ./AppDir
-#mv dist/sefaria-electron-1.0.0.AppImage /workspaces
+curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+chmod a+x appimagetool-x86_64.AppImage
+ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run Sefaria-Desktop-Unofficial.AppDir && rm -rf Sefaria-Desktop-Unofficial.AppDir
+mv Sefaria-Desktop-Unofficial-x86_64.AppImage /workspaces
