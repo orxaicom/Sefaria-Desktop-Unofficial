@@ -17,7 +17,7 @@ export QT_PLUGIN_PATH="${HERE}/usr/lib/qt4/plugins/:${HERE}/usr/lib/i386-linux-g
 cd "$(dirname "$0")"
 
 if [ ! -d "$HOME/Sefaria-Desktop-Unofficial" ]; then
-    echo "Copying Database to ~/Sefaria-Desktop-Unofficial..."
+    echo "Copying Database to $HOME/Sefaria-Desktop-Unofficial..."
     mkdir -p "$HOME/Sefaria-Desktop-Unofficial/log"
     cp -r "${HERE}/data/db" "$HOME/Sefaria-Desktop-Unofficial"
 else
