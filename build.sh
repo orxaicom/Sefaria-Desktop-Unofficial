@@ -50,8 +50,8 @@ chmod a+x linuxdeploy-x86_64.AppImage
 # GetText
 ./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --executable=/usr/bin/gettext
 
-# Desktop file and Icon
-./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --desktop-file=/workspaces/assets/Sefaria-Desktop-Unofficial.desktop --icon-file=/workspaces/assets/Sefaria-Desktop-Unofficial.png
+# Desktop file, Icon and AppRun
+./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --desktop-file=/workspaces/assets/Sefaria-Desktop-Unofficial.desktop --icon-file=/workspaces/assets/Sefaria-Desktop-Unofficial.png --custom-apprun=/workspaces/assets/AppRun
 
 cp -r /python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir Sefaria-Desktop-Unofficial.AppDir
 sed -i "s;'NAME': '/workspaces;'NAME': './workspaces;" /workspaces/Sefaria-Project/sefaria/local_settings.py
@@ -60,8 +60,6 @@ cp /workspaces/assets/AppRun Sefaria-Desktop-Unofficial.AppDir
 chmod +x Sefaria-Desktop-Unofficial.AppDir/AppRun
 cp /workspaces/assets/Sefaria-Desktop-Unofficial.desktop Sefaria-Desktop-Unofficial.AppDir
 mv /data/db Sefaria-Desktop-Unofficial.AppDir/data
-
-cp /usr/lib/x86_64-linux-gnu/libatomic.so.1 Sefaria-Desktop-Unofficial.AppDir/usr/lib/x86_64-linux-gnu
 
 # Final migrate
 cd Sefaria-Desktop-Unofficial.AppDir
