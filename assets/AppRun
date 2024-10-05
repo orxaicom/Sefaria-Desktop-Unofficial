@@ -13,15 +13,44 @@ export QT_PLUGIN_PATH="${HERE}/usr/lib/qt4/plugins/:${HERE}/usr/lib/i386-linux-g
 #EXEC=$(grep -e '^Exec=.*' "${HERE}"/*.desktop | head -n 1 | cut -d "=" -f 2 | cut -d " " -f 1)
 #exec "${EXEC}" "$@"
 
-
 # Set the AppDir as the current directory
 cd "$(dirname "$0")"
 
-# Start MongoDB
-${HERE}/usr/bin/mongod --quiet --dbpath ${HERE}/data/db 2>&1 1>/dev/null &
+if [ ! -d "$HOME/Sefaria-Desktop-Unofficial" ]; then
+    echo "Copying Database to ~/Sefaria-Desktop-Unofficial..."
+    mkdir -p "$HOME/Sefaria-Desktop-Unofficial/log"
+    cp -r "${HERE}/data/db" "$HOME/Sefaria-Desktop-Unofficial"
+else
+    echo "Database already exists at $HOME/Sefaria-Desktop-Unofficial"
+fi
 
-# Start Redis
-${HERE}/usr/bin/redis-server &
+is_mongod_running() {
+    pgrep mongod >/dev/null
+    return $?
+}
+
+# Check if MongoDB is already running
+if is_mongod_running; then
+    echo "MongoDB is already running"
+else
+    echo "Starting MongoDB..."
+    ${HERE}/usr/bin/mongod --quiet --fork --logpath "$HOME/Sefaria-Desktop-Unofficial/log/mongodb.log" --dbpath "$HOME/Sefaria-Desktop-Unofficial/db" 2>&1 1>/dev/null &
+fi
+
+is_redis_running() {
+    pgrep redis-server >/dev/null
+    return $?
+}
+
+# Check if Redis is already running
+if is_redis_running; then
+    echo "Redis is already running"
+else
+    echo "Starting Redis..."
+    ${HERE}/usr/bin/redis-server --daemonize yes &
+fi
 
 # Start the Sefaria server
+echo "Starting Sefaria..."
+echo "This takes a minute or two, Please wait..."
 ${HERE}/python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ${HERE}/workspaces/Sefaria-Project/manage.py runserver
