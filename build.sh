@@ -20,6 +20,7 @@ unzip main.zip >/dev/null && rm main.zip
 mv Sefaria-Container-Unofficial-main/local_settings.py sefaria && rm -rf Sefaria-Container-Unofficial-main
 mongod --fork --logpath /var/log/mongodb.log --dbpath /data/db
 /python3.8 manage.py migrate
+mongod --shutdown --logpath /var/log/mongodb.log --dbpath /data/db
 
 # Install npm modules
 npm install
@@ -52,10 +53,17 @@ chmod a+x linuxdeploy-x86_64.AppImage
 # Desktop file, Icon and AppRun
 ./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --desktop-file=/workspaces/assets/Sefaria-Desktop-Unofficial.desktop --icon-file=/workspaces/assets/Sefaria-Desktop-Unofficial.png --custom-apprun=/workspaces/assets/AppRun
 
+# Manual adding of files to AppDir
 cp -r /python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir Sefaria-Desktop-Unofficial.AppDir
 sed -i "s;'NAME': '/workspaces;'NAME': './workspaces;" /workspaces/Sefaria-Project/sefaria/local_settings.py
 cp -r /workspaces/Sefaria-Project Sefaria-Desktop-Unofficial.AppDir/workspaces
 mv /data/db Sefaria-Desktop-Unofficial.AppDir/data
+
+# Final migrate
+cd Sefaria-Desktop-Unofficial.AppDir
+./usr/bin/mongod --fork --logpath /var/log/mongodb.log --dbpath ./data/db
+./python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ./workspaces/Sefaria-Project/manage.py migrate
+cd /
 
 # Build the AppImage
 curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
