@@ -1,6 +1,7 @@
 [Desktop Entry]
-Name=MyApp
+Name=Sefaria-Desktop-Unofficial
 Exec=AppRun
-Icon=myapp
+Icon=Sefaria-Desktop-Unofficial
 Type=Application
-Categories=Utility;
+Terminal=true
+Categories=Utility;ConsoleOnly;
