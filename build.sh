@@ -51,7 +51,7 @@ chmod a+x linuxdeploy-x86_64.AppImage
 ./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --executable=/usr/bin/gettext
 
 # Icon
-#
+./linuxdeploy-x86_64.AppImage --appimage-extract-and-run --appdir=Sefaria-Desktop-Unofficial.AppDir --icon-file=/workspaces/assets/Sefaria-Desktop-Unofficial.png
 
 cp -r /python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir Sefaria-Desktop-Unofficial.AppDir
 sed -i "s;'NAME': '/workspaces;'NAME': './workspaces;" /workspaces/Sefaria-Project/sefaria/local_settings.py
