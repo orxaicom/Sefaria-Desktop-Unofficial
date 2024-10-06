@@ -51,6 +51,9 @@ app that displays the port 8000. In fact I've done that and build the electron
 for Linux (I've lost the working version on my disk, have to write it again).
 At the moment I don't use Windows or Mac and haven't build for them or test on them.
 
+Please open an issue if you've encountered any errors when running this program.
+All suggestions and PRs are appreciated.
+
 This project is meant to assemble a team of volunteers to work on this
 until we have a working desktop app for Windows, Mac and Linux, as it's been
 [long overdue](https://github.com/Sefaria/Sefaria-Project/issues/294).
