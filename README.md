@@ -21,7 +21,7 @@ Make it executable and run it:
 chmod +x ./Sefaria-Desktop-Unofficial-x86_64.AppImage
 ./Sefaria-Desktop-Unofficial-x86_64.AppImage
 ```
-The first time that you run it, it copies the Sefaria database and logs to
+The first time that you run it, it copies the Sefaria database to
 `~/Sefaria-Desktop-Unofficial`.
 After that wait for a minute or two until the server is up.
 When you see:
