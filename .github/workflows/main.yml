@@ -1,19 +1,12 @@
 name: Run build.sh inside /workspaces
 
 on:
-  push:
-    tags:
-      - "v*.*.*"
   workflow_dispatch:
 
 jobs:
-  build-and-release:
+  run-ls:
     runs-on: ubuntu-latest
     
-    permissions:
-      contents: write
-      #discussions: write  # If you plan to use the discussion_category_name feature
-
     steps:
     - name: Check out repository
       uses: actions/checkout@v4
@@ -22,15 +15,8 @@ jobs:
       run: |
         docker run -v $(pwd):/workspaces ghcr.io/orxaicom/sefaria-container-unofficial:latest /bin/bash -c "cd /workspaces && chmod +x build.sh && ./build.sh"
 
-    - name: Release
-      uses: softprops/action-gh-release@v2
+    - name: Upload AppImage
+      uses: actions/upload-artifact@v4
       with:
-        files: |
-          Sefaria-Desktop-Unofficial-x86_64.AppImage
-          draft: false
-          prerelease: false
-          body: "Description of the release"
-          body_path: CHANGELOG.md
-          name: "Release ${{ github.ref_name }}"
-          tag_name: ${{ github.ref }}
-          generate_release_notes: true
+        name: Sefaria-Desktop-Unofficial-x86_64.AppImage
+        path: Sefaria-Desktop-Unofficial-x86_64.AppImage
