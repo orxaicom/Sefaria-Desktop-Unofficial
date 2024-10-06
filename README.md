@@ -58,8 +58,8 @@ until we have a working desktop app for Windows, Mac and Linux, as it's been
 ## TODO
 * [ ] Check for any web request to internet (for example web fonts) and pack those
       in the AppImage to make it fully self contained.
-* [ ] I tried to upload the AppImage to the GitHub Releases, But it doesn't allow
-      files bigger than 2 GB.
+* [ ] I've tried to upload the AppImage to the GitHub Releases, But it doesn't allow
+      files larger than 2 GB.
 * [ ] The start up time for the server is around 2 minutes and unacceptable. Profile
       it to see why it takes so long. Investigate using Gunicorn. Also tried
       manage.py runserver --skip-checks but since we're shipping with an older
