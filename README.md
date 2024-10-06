@@ -39,6 +39,7 @@ source code for the Sefaria website, and all its dependencies including:
 * MongoDB
 * Redis server
 * Restored [Sefaria database](https://storage.googleapis.com/sefaria-mongo-backup/dump_small.tar.gz)
+
 and some other required binaries and their libraries into a self contained AppImage.
 It's an executable that doesn't have any dependencies to run on a Linux system.
 It depends on our other repository,
@@ -62,10 +63,10 @@ until we have a working desktop app for Windows, Mac and Linux, as it's been
 * [ ] The start up time for the server is around 2 minutes and unacceptable. Profile
       it to see why it takes so long. Investigate using Gunicorn. Also tried
       manage.py runserver --skip-checks but since we're shipping with an older
-      version of django, not supported.
+      version of django, it's not supported.
 * [ ] Currently we're packaging python3.8 with the AppImage per
       [Sefaria's Recommendation](https://developers.sefaria.org/docs/local-installation-instructions).
-      Work with Sefaria to fix the bugs and move to a more recent version.
+      Work with Sefaria to fix the bugs and move to a recent version.
 * [ ] Should we have a GUI or just ship this as a server?
 * [ ] If some Windows users experiment with running this on WSL, that would be intersting.
       Mac people as well.
