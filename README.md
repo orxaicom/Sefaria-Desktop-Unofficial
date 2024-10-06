@@ -64,13 +64,13 @@ until we have a working desktop app for Windows, Mac and Linux, as it's been
 [long overdue](https://github.com/Sefaria/Sefaria-Project/issues/294).
 
 ## TODO
-* [ ] Check for any web request to internet (for example web fonts) and pack those
+* [ ] Check for any web requests to internet (for example web fonts) and pack those
       in the AppImage to make it fully self contained.
 * [ ] I've tried to upload the AppImage to the GitHub Releases, But it doesn't allow
       files larger than 2 GB.
 * [ ] The start up time for the server is around 2 minutes and unacceptable. Profile
       it to see why it takes so long. Investigate using Gunicorn. Also tried
-      manage.py runserver `--skip-checks` but since we're shipping with an older
+      `manage.py runserver --skip-checks` but since we're shipping with an older
       version of Django, it's not supported.
 * [ ] Currently we're packaging python3.8 with the AppImage per
       [Sefaria's Recommendation](https://developers.sefaria.org/docs/local-installation-instructions).
