@@ -94,4 +94,6 @@ until we have a working desktop app for Windows, Mac and Linux, as it's been
 * [ ] [This](https://docs.appimage.org/packaging-guide/distribution.html) and
       [this](https://docs.appimage.org/packaging-guide/testing.html) contain
       great guidelines for making a professional AppImage, abide by them.
+* [ ] Make the AppImage
+      [updatable](https://docs.appimage.org/packaging-guide/optional/updates.html)
 * [ ] Investigate the copyright implications of bundling binaries with AppImages.
