@@ -41,7 +41,10 @@ source code for the Sefaria website, and all its dependencies including:
 * Restored [Sefaria database](https://storage.googleapis.com/sefaria-mongo-backup/dump_small.tar.gz)
 
 and some other required binaries and their libraries into a self contained AppImage.
-It's an executable that doesn't have any dependencies to run on a Linux system.
+It's an executable that doesn't have any dependencies to run on a Linux system
+(Other than `FUSE` that AppImage needs to let non-root users mount filesystems, It's
+available on most systems, except on docker. You can run it like this if `FUSE` not
+available: `Sefaria-Desktop-Unofficial-x86_64.AppImage --appimage-extract-and-run`).
 It depends on our other repository,
 [Sefaria-Container-Unofficial](https://github.com/orxaicom/Sefaria-Container-Unofficial)
 which is a docker container that has Sefaria installed in it.
@@ -70,6 +73,14 @@ until we have a working desktop app for Windows, Mac and Linux, as it's been
 * [ ] Currently we're packaging python3.8 with the AppImage per
       [Sefaria's Recommendation](https://developers.sefaria.org/docs/local-installation-instructions).
       Work with Sefaria to fix the bugs and move to a recent version.
+* [ ] MongoDB needs to write to the database directory, for journaling and what not.
+      That's the reason we first
+      [write the database](https://github.com/orxaicom/Sefaria-Desktop-Unofficial/blob/5533ca05742485437f6268373ce7544b3ab07f08/assets/AppRun#L22)
+      to `~/Sefaria-Desktop-Unofficial`. But since we're using the db readonly,
+      this is not an elegant solution, ideally the db should stay in the AppImage.
+      I think recent versions of MongoDB
+      [removed](https://www.mongodb.com/docs/v4.4/tutorial/manage-journaling/)
+      the `--nojournal` option.
 * [ ] Should we have a GUI or just ship this as a server?
 * [ ] If some Windows users experiment with running this on WSL, that would be intersting.
       Mac people as well.
