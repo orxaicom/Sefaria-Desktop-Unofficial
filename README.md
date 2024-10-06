@@ -88,6 +88,7 @@ until we have a working desktop app for Windows, Mac and Linux, as it's been
       directly serve with electron.
 * [ ] If some Windows users experiment with running this on WSL, that would be interesting.
       Mac people as well.
+* [ ] Check the icon and desktop integration. (I'm on i3wm, can't see).
 * [ ] See whether we can query the api locally like
       [this](https://developers.sefaria.org/reference/getting-started-with-your-api)
 * [ ] [This](https://docs.appimage.org/packaging-guide/distribution.html) and
