@@ -21,7 +21,7 @@ Make it executable and run it:
 chmod +x ./Sefaria-Desktop-Unofficial-x86_64.AppImage
 ./Sefaria-Desktop-Unofficial-x86_64.AppImage
 ```
-The first time that you run it, it copies the Sefaria database to
+The first time you run it, it copies the Sefaria database to
 `~/Sefaria-Desktop-Unofficial`.
 After that wait for a minute or two until the server is up.
 When you see:
@@ -29,15 +29,16 @@ When you see:
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
-Open your browser and go to `http://127.0.0.1:8000/`
+Open your browser and go to
+[http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## NOTES
 This repository packages
 [Sefaria-Project](https://github.com/Sefaria/Sefaria-Project) which contains the
 source code for the Sefaria website, and all its dependencies including:
 * python3.8 and its packages
-* node modules
-* MongoDB
+* node packages
+* MongoDB daemon
 * Redis server
 * Restored [Sefaria database](https://storage.googleapis.com/sefaria-mongo-backup/dump_small.tar.gz)
 
@@ -69,7 +70,7 @@ until we have a working desktop app for Windows, Mac and Linux, as it's been
       files larger than 2 GB.
 * [ ] The start up time for the server is around 2 minutes and unacceptable. Profile
       it to see why it takes so long. Investigate using Gunicorn. Also tried
-      manage.py runserver --skip-checks but since we're shipping with an older
+      manage.py runserver `--skip-checks` but since we're shipping with an older
       version of django, it's not supported.
 * [ ] Currently we're packaging python3.8 with the AppImage per
       [Sefaria's Recommendation](https://developers.sefaria.org/docs/local-installation-instructions).
@@ -83,6 +84,8 @@ until we have a working desktop app for Windows, Mac and Linux, as it's been
       [removed](https://www.mongodb.com/docs/v4.4/tutorial/manage-journaling/)
       the `--nojournal` option.
 * [ ] Should we have a GUI or just ship this as a server?
+* [ ] Investigate more efficient solutions that don't depend on Redis and MongoDB, and
+      directly serve with electron.
 * [ ] If some Windows users experiment with running this on WSL, that would be intersting.
       Mac people as well.
 * [ ] See whether we can query the api locally like
