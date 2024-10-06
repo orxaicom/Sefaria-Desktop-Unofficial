@@ -4,7 +4,8 @@
 
 # Sefaria Desktop Unofficial
 
-This is an **experimental** work in progress. You're welcome to test and contribute.
+This is an attempt to build a desktop app for [Sefaria](https://www.sefaria.org/texts).
+It's an **experimental** work in progress. You're welcome to test and contribute.
 
 ## Quick Start
 Currently only supported on Linux.
