@@ -31,7 +31,7 @@ Quit the server with CONTROL-C.
 Open your browser and go to `http://127.0.0.1:8000/`
 
 ## NOTES
-This repository basically packages
+This repository packages
 [Sefaria-Project](https://github.com/Sefaria/Sefaria-Project) which contains the
 source code for the Sefaria website, and all its dependencies including:
 * python3.8 and its packages
