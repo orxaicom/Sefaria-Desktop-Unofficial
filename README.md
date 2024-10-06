@@ -44,8 +44,8 @@ source code for the Sefaria website, and all its dependencies including:
 
 and some other required binaries and their libraries into a self contained AppImage.
 It's an executable that doesn't have any dependencies to run on a Linux system
-(Other than `FUSE` that AppImage needs to let non-root users mount filesystems, It's
-available on most systems, except on docker. You can run it like this if `FUSE` not
+(Other than `FUSE` that AppImage needs and is
+available on most systems, except for docker. You can run it like this if `FUSE` not
 available: `Sefaria-Desktop-Unofficial-x86_64.AppImage --appimage-extract-and-run`).
 It depends on our other repository,
 [Sefaria-Container-Unofficial](https://github.com/orxaicom/Sefaria-Container-Unofficial)
