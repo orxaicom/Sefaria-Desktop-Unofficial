@@ -47,9 +47,10 @@ It's an executable that doesn't have any dependencies to run on a Linux system
 (Other than `FUSE` that AppImage needs and is
 available on most systems, except for docker. You can run it like this if `FUSE` not
 available: `Sefaria-Desktop-Unofficial-x86_64.AppImage --appimage-extract-and-run`).
-It depends on our other repository,
-[Sefaria-Container-Unofficial](https://github.com/orxaicom/Sefaria-Container-Unofficial)
-which is a docker container that has Sefaria installed in it.
+
+The workflow builds this package inside a docker container that has Sefaria installed
+in it. It's on our other repository,
+[Sefaria-Container-Unofficial](https://github.com/orxaicom/Sefaria-Container-Unofficial).
 
 Now that we have a working AppImage it's trivial to wrap it inside an electron
 app that displays the port 8000. In fact I've done that and build the electron
