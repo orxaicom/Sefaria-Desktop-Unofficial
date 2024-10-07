@@ -48,7 +48,8 @@ It's an executable that doesn't have any dependencies to run on a Linux system
 available on most systems, except for docker. You can run it like this if `FUSE` not
 available: `Sefaria-Desktop-Unofficial-x86_64.AppImage --appimage-extract-and-run`).
 
-The workflow builds this package inside a docker container that has Sefaria installed
+The [workflow](https://github.com/orxaicom/Sefaria-Desktop-Unofficial/blob/f4c8e6ac54e22c273f44c84cf279359af8c7d487/.github/workflows/main.yml#L16)
+builds this package inside a docker container that has Sefaria installed
 in it. It's on our other repository,
 [Sefaria-Container-Unofficial](https://github.com/orxaicom/Sefaria-Container-Unofficial).
 
