@@ -65,6 +65,9 @@ cd Sefaria-Desktop-Unofficial.AppDir
 ./python3.8.13-cp38-cp38-manylinux2010_x86_64.AppDir/opt/python3.8/bin/python3.8 ./workspaces/Sefaria-Project/manage.py migrate
 cd /
 
+# Remove the db for dev purposes
+rm -rf Sefaria-Desktop-Unofficial.AppDir/data/db
+
 # Build the AppImage
 curl -OL "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
 chmod a+x appimagetool-x86_64.AppImage
