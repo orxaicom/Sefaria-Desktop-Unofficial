@@ -1,4 +1,4 @@
-name: Run build.sh inside /workspaces
+name: Run only on electron branch
 
 on:
   workflow_dispatch:
