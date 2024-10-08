@@ -1,4 +1,4 @@
-name: Run build.sh inside /workspaces
+name: Run build.sh inside /workspaces (main branch)
 
 on:
   workflow_dispatch:
